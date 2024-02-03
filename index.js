@@ -60,7 +60,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/card/image', express.static('public/images'));
 
-// get request ..........................
+ // get request ..........................
 app.get('/', function (req, res) {
     res.send("1");
 })
