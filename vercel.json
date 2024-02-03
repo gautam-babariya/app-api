@@ -6,9 +6,5 @@
     ],
     "routes": [
         { "src": "/(.*)", "dest": "/index.js"}
-    ],
-    "static": {
-              "source": "public/images",
-              "basePath": "/card/image"
-  }
+    ]
 }
