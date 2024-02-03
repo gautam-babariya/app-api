@@ -59,8 +59,10 @@ const upload = multer({ storage })
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use('/card/image', express.static('public/images'));
-
-// get request ..........................
+app.get('/card/image/1706356185137_image-1.jpg', function(req,res) {
+        res.send("1");
+})
+                 // get request ..........................
 app.get('/', function (req, res) {
     res.send("1");
 })
