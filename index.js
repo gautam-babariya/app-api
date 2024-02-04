@@ -4,8 +4,11 @@ const port = 5500;
 const path = require("path");
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const fileupload = require('express-fileupload')
+const cloudinary = require('cloudinary').v2;
 const usersRouter = require('./model/user');
 const Product = require('./model/Product');
+
 // cors code 
 var cors = require('cors')
 app.use(cors())
@@ -22,6 +25,13 @@ var corsOptions = {
 // jwt code 
 const jwt = require('jsonwebtoken');
 const secretKey = 'hybyhyby';
+
+// cloudinary configuration 
+cloudinary.config({ 
+    cloud_name: 'delde3vvw', 
+    api_key: '677662562595255', 
+    api_secret: 'OtKmdP9jhhYIXObdsuUmVbDCuV4'
+  });
 
 
 // mongo connection..........................
@@ -58,6 +68,9 @@ const upload = multer({ storage })
 // static files serve 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(fileupload({
+    useTempFiles: true
+}))
 app.use('/card/image', express.static('public/images'));
 
  // get request ..........................
@@ -140,19 +153,47 @@ app.post('/api/checkauth', async (req, res) => {
     }
 
 })
-app.post('/products', upload.fields([
-    { name: 'file', maxCount: 1 },
-    { name: 'subimg1', maxCount: 1 },
-    { name: 'subimg2', maxCount: 1 },
-    { name: 'subimg3', maxCount: 1 },
-    { name: 'subimg4', maxCount: 1 }
-]), async (req, res) => {
+
+// multer code uplode 
+// upload.fields([
+//     { name: 'file', maxCount: 1 },
+//     { name: 'subimg1', maxCount: 1 },
+//     { name: 'subimg2', maxCount: 1 },
+//     { name: 'subimg3', maxCount: 1 },
+//     { name: 'subimg4', maxCount: 1 }
+// ]), 
+app.post('/products',async (req, res) => {
     try {
-        const imageFilename = req.files['file'][0].filename;
-        const subimg1 = req.files['subimg1'][0].filename;
-        const subimg2 = req.files['subimg2'][0].filename;
-        const subimg3 = req.files['subimg3'][0].filename;
-        const subimg4 = req.files['subimg4'][0].filename;
+        const file0 = req.files.file;
+        var imageFilename;
+       await cloudinary.uploader.upload(file0.tempFilePath, (err,result)=>{
+            
+             imageFilename = result.url;
+        })
+        const file1 = req.files.subimg1;
+        var subimg1;
+        await cloudinary.uploader.upload(file1.tempFilePath, (err,result)=>{
+           
+             subimg1 = result.url;
+        })
+        const file2 = req.files.subimg2;
+        var subimg2;
+        await cloudinary.uploader.upload(file2.tempFilePath, (err,result)=>{
+        
+             subimg2 = result.url;
+        })
+        const file3 = req.files.subimg3;
+        var subimg3;
+        await cloudinary.uploader.upload(file3.tempFilePath, (err,result)=>{
+       
+             subimg3 = result.url;
+        })
+        const file4 = req.files.subimg4;
+        var subimg4;
+        await cloudinary.uploader.upload(file4.tempFilePath, (err,result)=>{
+          
+             subimg4 = result.url;
+        })
         const productname = req.body.productname;
         const title = req.body.title;
         const type = req.body.type;
