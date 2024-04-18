@@ -152,16 +152,7 @@ app.post('/api/checkauth', async (req, res) => {
         res.send("0");
     }
 
-})
-
-// multer code uplode 
-// upload.fields([
-//     { name: 'file', maxCount: 1 },
-//     { name: 'subimg1', maxCount: 1 },
-//     { name: 'subimg2', maxCount: 1 },
-//     { name: 'subimg3', maxCount: 1 },
-//     { name: 'subimg4', maxCount: 1 }
-// ]), 
+}) 
 app.post('/products',async (req, res) => {
     try {
         const file0 = req.files.file;
@@ -218,7 +209,7 @@ app.post('/products',async (req, res) => {
             price,
         });
           await newProduct.save();
-        res.status(201).json(1);
+          res.send("1");
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
