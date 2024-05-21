@@ -164,36 +164,41 @@ app.post('/api/checkauth', async (req, res) => {
 // ]), 
 app.post('/products',async (req, res) => {
     try {
-        const file0 = req.files.file;
-        var imageFilename;
-       await cloudinary.uploader.upload(file0.tempFilePath, (err,result)=>{
+    //     const file0 = req.files.file;
+    //     var imageFilename;
+    //    await cloudinary.uploader.upload(file0.tempFilePath, (err,result)=>{
             
-             imageFilename = result.url;
-        })
-        const file1 = req.files.subimg1;
-        var subimg1;
-        await cloudinary.uploader.upload(file1.tempFilePath, (err,result)=>{
+    //          imageFilename = result.url;
+             imageFilename = "ok";
+    //     })
+    //     const file1 = req.files.subimg1;
+    //     var subimg1;
+    //     await cloudinary.uploader.upload(file1.tempFilePath, (err,result)=>{
            
-             subimg1 = result.url;
-        })
-        const file2 = req.files.subimg2;
-        var subimg2;
-        await cloudinary.uploader.upload(file2.tempFilePath, (err,result)=>{
+    //          subimg1 = result.url;
+             subimg1 = "ok";
+    //     })
+    //     const file2 = req.files.subimg2;
+    //     var subimg2;
+    //     await cloudinary.uploader.upload(file2.tempFilePath, (err,result)=>{
         
-             subimg2 = result.url;
-        })
-        const file3 = req.files.subimg3;
-        var subimg3;
-        await cloudinary.uploader.upload(file3.tempFilePath, (err,result)=>{
+    //          subimg2 = result.url;
+             subimg2 = "ok";
+    //     })
+    //     const file3 = req.files.subimg3;
+    //     var subimg3;
+    //     await cloudinary.uploader.upload(file3.tempFilePath, (err,result)=>{
        
-             subimg3 = result.url;
-        })
-        const file4 = req.files.subimg4;
-        var subimg4;
-        await cloudinary.uploader.upload(file4.tempFilePath, (err,result)=>{
+    //          subimg3 = result.url;
+             subimg3 = "ok";
+    //     })
+        // const file4 = req.files.subimg4;
+    //     var subimg4;
+    //     await cloudinary.uploader.upload(file4.tempFilePath, (err,result)=>{
           
-             subimg4 = result.url;
-        })
+            //  subimg4 = result.url;
+             subimg4 = "ok";
+    //     })
         const productname = req.body.productname;
         const title = req.body.title;
         const type = req.body.type;
