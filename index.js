@@ -164,7 +164,7 @@ app.post('/api/checkauth', async (req, res) => {
 // ]), 
 app.post('/products',async (req, res) => {
     try {
-    //     const file0 = req.files.file;
+        const file0 = req.files.file;
     //     var imageFilename;
     //    await cloudinary.uploader.upload(file0.tempFilePath, (err,result)=>{
             
@@ -222,11 +222,13 @@ app.post('/products',async (req, res) => {
             description,
             price,
         });
-          await newProduct.save();
+        //   await newProduct.save();
+
         res.status(201).json(1);
     } catch (error) {
         console.error(error);
-        res.status(500).send('Internal Server Error');
+        // res.status(500).send('Internal Server Error');
+        res.status(500).send(newProduct);
     }
 });
 
