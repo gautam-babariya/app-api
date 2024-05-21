@@ -164,7 +164,7 @@ app.post('/api/checkauth', async (req, res) => {
 // ]), 
 app.post('/products',async (req, res) => {
     try {
-        const file0 = req.files.file;
+        // const file0 = req.files.file;
     //     var imageFilename;
     //    await cloudinary.uploader.upload(file0.tempFilePath, (err,result)=>{
             
