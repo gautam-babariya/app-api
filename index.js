@@ -170,7 +170,7 @@ app.post('/products',async (req, res) => {
     //    await cloudinary.uploader.upload(file0.tempFilePath, (err,result)=>{
             
     //          imageFilename = result.url;
-             imageFilename = "ok";
+             imageFilename = file0;
     //     })
     //     const file1 = req.files.subimg1;
     //     var subimg1;
