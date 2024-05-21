@@ -165,12 +165,11 @@ app.post('/api/checkauth', async (req, res) => {
 app.post('/products',async (req, res) => {
     try {
         // const file0 = req.files.file;
-        const file0 = req.body;
     //     var imageFilename;
     //    await cloudinary.uploader.upload(file0.tempFilePath, (err,result)=>{
             
     //          imageFilename = result.url;
-             imageFilename = file0;
+             imageFilename = req.body.title;
     //     })
     //     const file1 = req.files.subimg1;
     //     var subimg1;
