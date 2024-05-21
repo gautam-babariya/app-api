@@ -225,7 +225,7 @@ app.post('/products',async (req, res) => {
         //   await newProduct.save();
 
         // res.status(201).json(1);
-        res.status(201).send(newProduct);
+        res.status(201).send(imageFilename);
     } catch (error) {
         console.error(error);
         res.status(500).send('Internal Server Error');
